@@ -1,0 +1,71 @@
+Zadatak 1:
+1. Provjerite trenutni radni direktorij
+pwd
+
+2. Izlistajte sadržaj trenutnog radnog direktorija
+ls
+
+3. Napravite novi direktorij vjezba1 i prebacite se u njega
+mkdir vjezba1 && cd vjezba1
+
+4. Unutar direktorija vjezba1 napravite novu datoteku README.md
+touch README.md
+
+5. Vratite se u početni radni direktorij
+cd ..
+
+
+Zadatak 2:
+1. Napravite praznu datoteku file.txt unutar direktorija vjezba2
+mkdir vjezba2 && cd vjezba2 && touch file.txt
+
+2. Kopirajte datoteku file.txt u direktorij vjezba2 i nazovite ju file_copy.txt
+cp file.txt file_copy.txt
+
+3. Ispišite sve datoteke unutar direktorija vjezba2
+ls
+
+4. Obrišite datoteku file.txt i vratite se u početni radni direktorij
+rm file.txt && cd ..
+
+5. Pokušajte izbrisati direktorij vjezba2 . Zašto ne možete?
+rmdir vjezba2
+Ne mogu jer direktorij nije prazan, ali bi mogao sa: rm -rf vjezba2
+
+
+Zadatak 3:
+1. Napravite novi direktorij vjezba3 i unutar njega direktorij backup
+mkdir vjezba3 && mkdir vjezba3/backup && cd vjezba3
+
+2. Unutar direktorija vjezba3 napravite 3 datoteke: notes.txt , todo.txt i script.sh
+touch notes.txt todo.txt script.sh
+
+3. Kopirajte sve datoteke iz direktorija vjezba3 u direktorij backup
+cp notes.txt todo.txt script.sh backup
+
+4. Izbrišite samo datoteku script.sh iz direktorija vjezba3 i ispišite sve datoteke
+rm script.sh && ls
+
+5. U backup dodajte još jedan direktorij koju ćete imenovati USER varijablom
+mkdir "$PWD/backup/$USER"
+
+6. Premjestite sve datoteke iz direktorija backup u direktorij nazvan varijablom USER
+cd backup
+mv notes.txt todo.txt script.sh "$USER"
+
+
+Zadatak 4:
+1. Napravite novi direktorij vjezba4 i unutar njega direktorij subfolder
+mkdir vjezba4 && mkdir vjezba4/subfolder && cd vjezba4
+
+2. Unutar direktorija vjezba4 napravite datoteku prema nazivu varijable HOSTNAME
+touch "$HOSTNAME"
+
+3. Preimenujte novoizrađenu datoteku prema nazivu varijable USER
+mv "$HOSTNAME" "$USER"
+
+4. Premjestite datoteku USER u direktorij subfolder
+mv "$USER" subfolder
+
+5. Izbrišite datoteku USER koristeći apsolutnu putanju
+rm "$PWD/subfolder/$USER"
