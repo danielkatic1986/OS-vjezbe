@@ -1,0 +1,70 @@
+Zadatak 1
+U radnom okruženju stvorite direktorije vjezba_2/data i vjezba_2/backup koristeći dvije naredbe mkdir .
+mkdir -p vjezba_2/data
+mkdir -p vjezba_2/backup
+
+Unutar direktorija data stvorite sljedeće datoteke: script.js, style.css, .env
+cd vjezba_2/data
+touch script.js style.css .env
+
+Naredbom echo unesite sljedeći sadržaj u datoteke:
+script.js : console.log("Hello, World!")
+echo 'console.log("Hello, World!")' > script.js
+
+style.css : body { background-color: #f0f0f0; }
+echo "body { background-color: #f0f0f0; }" > style.css
+
+.env : VJEBE=OS
+echo "VJEBE=OS" > .env
+
+
+Zadatak 2
+Kopirajte sav sadržaj direktorija data u direktorij backup koristeći odgovarajuću naredbu. Ispišite detalje o
+radnji.
+cp -v * .env ../backup
+
+Prebacite se u direktorij data i napravite detaljan ispis direktorija backup . Ispis mora biti detaljan,
+uključivati sve skrivene datoteke i biti sortiran po veličini.
+(već sam u direktoriju data jer se u gornjoj naredbi nisam prebacivao u backup direktorij)
+ls -laS
+
+
+Zadatak 3
+Jednom naredbom izbrišite sve datoteke u direktoriju data osim datoteke .env koristeći odgovarajuće
+zastavice. Ispišite detalje o radnji.
+rm -v *
+
+Napravite ponovno direktorij data i kopirajte u njega sve datoteke iz direktorija backup koristeći
+odgovarajuću naredbu, ali spriječite prepisivanje datoteka koje već postoje. Ispišite detalje o radnji.
+(direktorij data i dalje postoji pošto je ostala .env datoteka u njemu)
+cp -nv ../backup/* ./
+
+Detaljno ispišite sadržaj direktorija data koji mora sadržavati skrivene datoteke osim pokazivača na
+trenutni i radni direktorij, sortirane po datumu zadnje izmjene i svaki zapis u novom redu.
+ls -lAS
+
+
+Zadatak 4
+Otvorite direktorij po želji, ali nek ne sadržava više od 20 datoteka - mora sadržavati ugniježđene direktorije
+s nekoliko datoteka unutar njih.
+mkdir -p code/01 code/02 code/03
+touch code/README.md code/01/index.html code/01/style.css code/02/script.js code/02/models.js code/03/.env code/03/script.py code/03/script.php
+
+Prebacite se u direktorij i napišite sljedeće naredbe: 
+cd code
+
+1. Izlistaj detaljno sadržaj glavnog direktorija, uključujući sve skrivene datoteke i sortiraj po veličini.
+ls -laS
+
+2. Izlistaj detaljno sadržaj glavnog direktorija, bez skrivenih datoteka, sortiraj po veličini i prikaži jedinice
+(KB, MB, GB) uz veličinu datoteka.
+script.js
+style.css
+.env
+
+ls -lSh
+
+3. Izlistaj sav sadržaj direktorija (uključujući poddirektorije i njihove datoteke i skrivene datoteke), ispis
+neka bude u boji i sortiran po datumu zadnje izmjene (najnovije na početku).
+
+ls -laRt --color
