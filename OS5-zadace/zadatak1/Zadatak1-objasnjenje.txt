@@ -1,0 +1,25 @@
+PID: 1521, hello.py
+PID - identifikacijski broj procesa
+USER: daniel-kat, korisnik koji je pokrenuo proces
+PRI: 20, Prioritet procesa (standardni za korisničke procese)
+NI (nice): 0, "Nice" vrijednost, utječe na prioritet planiranja (0 je standard)
+VIRT: 17968, virtualna memorija koju proces može koristiti
+RES: 10240, stvarni ram koji proces koristi
+SHR: 6528, memorija koju dijeli s drugim procesima
+S (status): S, status procesa: S znači "sleeping" - proces trenutno miruje
+CPU%: 0.0, trenutna potrošnja CPU-a (ne koristi aktivno CPU)
+MEM%, 0.5, koristi 0.5% ukupne fizičke memorije sustava
+TIME+, 00:00:00, ukupno CPU vremena koje je proces potrošio do sada - 0 sekundi do sada
+Command: python3 hello.py, pokrenuti program - python skripta hello.py
+
+
+Barem 3 načina kako prekinuti proces pomoću kill:
+
+kill 1521
+- šalje SIGTERM (15), ljubazno traži od procesa da se zatvori
+
+kill -9 1521
+- šalje SIGKILL (9), prisilno prekida proces bez mogućnosti obrade
+
+pkill -f hello.py
+- traži procese koji sadrže hello.py i prekida ih
